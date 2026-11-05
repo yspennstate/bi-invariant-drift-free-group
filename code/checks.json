@@ -1,0 +1,127 @@
+{
+ "dp_vs_definition": {
+  "words": 21845,
+  "max_length": 7,
+  "rank": 2
+ },
+ "metric_properties": {
+  "words": 87381,
+  "pairs": 7225
+ },
+ "tail_r32": [
+  {
+   "n": 8,
+   "bound": 0.0005348920822143555,
+   "bound_over_2_pow_minus_half_n": 0.008558273315429688
+  },
+  {
+   "n": 16,
+   "bound": 3.5076623916552307e-06,
+   "bound_over_2_pow_minus_half_n": 0.0008979615722637391
+  },
+  {
+   "n": 32,
+   "bound": 4.6554519486115997e-10,
+   "bound_over_2_pow_minus_half_n": 3.050996989042098e-05
+  },
+  {
+   "n": 64,
+   "bound": 2.8420717854209604e-17,
+   "bound_over_2_pow_minus_half_n": 1.2206605371267355e-07
+  },
+  {
+   "n": 128,
+   "bound": 3.9272584358518278e-31,
+   "bound_over_2_pow_minus_half_n": 7.244513127747555e-12
+  },
+  {
+   "n": 256,
+   "bound": 2.884522059355158e-58,
+   "bound_over_2_pow_minus_half_n": 9.815519937930329e-20
+  }
+ ],
+ "chernoff": [
+  {
+   "r": 3,
+   "largest_c": 0.048130986325974234
+  },
+  {
+   "r": 4,
+   "largest_c": 0.09488207673804094
+  },
+  {
+   "r": 8,
+   "largest_c": 0.22709219509407497
+  },
+  {
+   "r": 32,
+   "largest_c": 0.4999999999999991
+  }
+ ],
+ "monte_carlo": [
+  {
+   "r": 2,
+   "n": 40,
+   "samples": 200,
+   "mean_L_over_n": 0.21100000000000002,
+   "min_L_over_n": 0.05
+  },
+  {
+   "r": 2,
+   "n": 80,
+   "samples": 100,
+   "mean_L_over_n": 0.1575,
+   "min_L_over_n": 0.075
+  },
+  {
+   "r": 2,
+   "n": 160,
+   "samples": 40,
+   "mean_L_over_n": 0.128125,
+   "min_L_over_n": 0.0625
+  },
+  {
+   "r": 3,
+   "n": 40,
+   "samples": 200,
+   "mean_L_over_n": 0.2875,
+   "min_L_over_n": 0.15
+  },
+  {
+   "r": 3,
+   "n": 80,
+   "samples": 100,
+   "mean_L_over_n": 0.23650000000000002,
+   "min_L_over_n": 0.175
+  },
+  {
+   "r": 3,
+   "n": 160,
+   "samples": 40,
+   "mean_L_over_n": 0.2034375,
+   "min_L_over_n": 0.1625
+  },
+  {
+   "r": 32,
+   "n": 40,
+   "samples": 200,
+   "mean_L_over_n": 0.75425,
+   "min_L_over_n": 0.6
+  },
+  {
+   "r": 32,
+   "n": 80,
+   "samples": 100,
+   "mean_L_over_n": 0.70375,
+   "min_L_over_n": 0.6
+  },
+  {
+   "r": 32,
+   "n": 160,
+   "samples": 40,
+   "mean_L_over_n": 0.6675,
+   "min_L_over_n": 0.625
+  }
+ ],
+ "elapsed_seconds": 17.4
+}

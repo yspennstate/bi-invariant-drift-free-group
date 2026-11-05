@@ -1,0 +1,21 @@
+1. dynamic program equals the matching definition on all 21845 words of length <= 7 in F_2
+2. reduction invariance, nondegeneracy, inverse symmetry on 87381 words; triangle inequality and conjugation invariance on 7225 pairs
+3a. r=32 n=8: sum_k binom(n,k) C_m 64^-m over k <= n/4 = 5.349e-04, ratio to 2^(-n/2) = 8.558e-03
+3a. r=32 n=16: sum_k binom(n,k) C_m 64^-m over k <= n/4 = 3.508e-06, ratio to 2^(-n/2) = 8.980e-04
+3a. r=32 n=32: sum_k binom(n,k) C_m 64^-m over k <= n/4 = 4.655e-10, ratio to 2^(-n/2) = 3.051e-05
+3a. r=32 n=64: sum_k binom(n,k) C_m 64^-m over k <= n/4 = 2.842e-17, ratio to 2^(-n/2) = 1.221e-07
+3a. r=32 n=128: sum_k binom(n,k) C_m 64^-m over k <= n/4 = 3.927e-31, ratio to 2^(-n/2) = 7.245e-12
+3a. r=32 n=256: sum_k binom(n,k) C_m 64^-m over k <= n/4 = 2.885e-58, ratio to 2^(-n/2) = 9.816e-20
+3b. r=3: Lemma 3.2 gives exponential decay of P(L <= cn) for every c < 0.0481
+3b. r=4: Lemma 3.2 gives exponential decay of P(L <= cn) for every c < 0.0949
+3b. r=8: Lemma 3.2 gives exponential decay of P(L <= cn) for every c < 0.2271
+3b. r=32: Lemma 3.2 gives exponential decay of P(L <= cn) for every c < 0.5000
+4. r=2 n=40: mean L(X_n)/n = 0.2110 over 200 walks (smallest 0.0500)
+4. r=2 n=80: mean L(X_n)/n = 0.1575 over 100 walks (smallest 0.0750)
+4. r=2 n=160: mean L(X_n)/n = 0.1281 over 40 walks (smallest 0.0625)
+4. r=3 n=40: mean L(X_n)/n = 0.2875 over 200 walks (smallest 0.1500)
+4. r=3 n=80: mean L(X_n)/n = 0.2365 over 100 walks (smallest 0.1750)
+4. r=3 n=160: mean L(X_n)/n = 0.2034 over 40 walks (smallest 0.1625)
+4. r=32 n=40: mean L(X_n)/n = 0.7542 over 200 walks (smallest 0.6000)
+4. r=32 n=80: mean L(X_n)/n = 0.7037 over 100 walks (smallest 0.6000)
+4. r=32 n=160: mean L(X_n)/n = 0.6675 over 40 walks (smallest 0.6250)

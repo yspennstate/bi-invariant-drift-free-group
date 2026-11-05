@@ -1,0 +1,232 @@
+\documentclass[11pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools,enumitem}
+\usepackage[margin=1.1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+
+\newcommand{\Pp}{\mathbb P}
+\newcommand{\E}{\mathbb E}
+\newcommand{\F}{\mathbf F}
+
+\hypersetup{pdftitle={Positive drift for a bi-invariant metric on a free group},pdfauthor={Yitzchak Shmalo}}
+
+\title{Positive drift for a bi-invariant metric on a free group}
+\author{Yitzchak Shmalo}
+\address{Einstein Institute of Mathematics, The Hebrew University of Jerusalem, Jerusalem, Israel}
+\email{yitzchak.shmalo@gmail.com}
+\date{5 November 2026}
+\subjclass[2020]{60G50, 20F65, 20E05, 60B15}
+\keywords{random walks on groups, drift, bi-invariant metrics, conjugation-invariant norms, cancelation norm, free groups}
+
+\begin{document}
+\begin{abstract}
+Bj\"orklund asked whether the drift of a symmetric random walk on a countable group vanishes for every bi-invariant metric with finite first moment. We show that it does not. On the free group $\F_r$ with $r\ge3$, let $\mu$ be the uniform measure on the $2r$ generators and their inverses, and let $L(g)$ be the least number of letters that must be deleted from a word representing $g$ so that the remaining word represents the identity. Then $d(g,h)=L(g^{-1}h)$ is a bi-invariant metric, every step has length one, and the drift of the $\mu$-walk with respect to $d$ is at least $c_r>0$, where $c_r$ is the root of an explicit entropy equation; for instance $c_{32}=1/2$. The proof is a first moment bound over noncrossing matchings.
+\end{abstract}
+\maketitle
+
+\section{Introduction}
+
+Let $G$ be a countable group and $\mu$ a probability measure on $G$ whose support generates $G$ as a semigroup. If $d$ is a left-invariant metric on $G$ with $\int d(g,e)\,d\mu(g)<\infty$, the drift
+\[
+\ell_d(\mu)=\lim_{n\to\infty}\frac1n\int_G d(g,e)\,d\mu^{*n}(g)
+\]
+exists by Fekete's lemma. For word metrics, and more generally for metrics of the type considered by Karlsson and Ledrappier, vanishing of the drift is tied to the Liouville property of $(G,\mu)$ \cite{KV,KL}. In his notes on random walks \cite{B}, Bj\"orklund gives short proofs of these facts, and among the problems listed in the last section of the notes he asks the following \cite[Problem~4]{B}.
+
+\begin{quote}
+Let $(G,\mu)$ be a symmetric measured group and suppose there exists a bi-invariant (conjugation-invariant) and $\mu$-integrable (semi-)metric $d$ on $G$. Is $\ell_d(\mu)=0$?
+\end{quote}
+
+Here a measured group is a pair as above, and symmetry means $\mu(g)=\mu(g^{-1})$. No properness condition is placed on $d$. The answer is negative, already for simple random walk on a free group of rank three.
+
+For a word $w$ in the letters of $\F_r$ let $L(w)$ be the least number of letters whose deletion from $w$ leaves a word representing the identity. Section~\ref{sec:norm} shows that $L(w)$ depends only on the element represented by $w$; write $L(g)$ for this value. This is the cancelation norm of Brandenbursky, Gal, K\c{e}dra and Marcinkowski \cite{BGKM}, who identify it with the word norm associated with the union of the conjugacy classes of the letters \cite[Proposition~2.A]{BGKM}.
+
+For $0<y<1$ let $c(y)$ be the unique solution in $(0,1/(1+y))$ of
+\begin{equation}\label{eq:cr}
+-c\log c-(1-c)\log(1-c)=(1-c)\log\frac1y .
+\end{equation}
+Existence and uniqueness are checked in Lemma~\ref{lem:chernoff}. Put $c_r=c(\sqrt{2/r})$ for $r\ge3$.
+
+\begin{theorem}\label{thm:main}
+Let $r\ge3$, let $\mu$ be the uniform probability measure on the $2r$ letters $a_1^{\pm1},\dots,a_r^{\pm1}$ of $\F_r$, and let $d(g,h)=L(g^{-1}h)$. Then $\mu$ is symmetric and its support generates $\F_r$, $d$ is a bi-invariant metric on $\F_r$ with $\int d(g,e)\,d\mu(g)=1$, and
+\[
+\ell_d(\mu)\ge c_r>0 .
+\]
+Moreover, if $X_n$ denotes the $\mu$-random walk, then $\liminf_n L(X_n)/n\ge c_r$ almost surely.
+\end{theorem}
+
+Numerically $c_3\approx0.048$, $c_4\approx0.095$, $c_8\approx0.227$, and $c_{32}=1/2$ exactly, since $c=1/2$, $y=1/4$ satisfies \eqref{eq:cr} with both sides equal to $\log2$. The metric $d$ takes values in the nonnegative integers and is unbounded, but its balls are infinite: every conjugate of a letter lies at distance one from the identity.
+
+The proof of the bound counts. For $L(X_n)\le cn$ some noncrossing matching of the $n$ positions, leaving at most $cn$ of them unpaired, must pair only mutually inverse letters. A fixed matching with $m$ pairs succeeds with probability $(2r)^{-m}$, and there are at most $\binom nk4^m$ matchings with $k$ unpaired positions. For $r\ge3$ the factor $4/(2r)$ is below one and the sum is exponentially small in $n$ once $c$ is small; equation \eqref{eq:cr} records the best constant this estimate gives. For $r=2$ the factor equals one and the count gives nothing; see Remark~\ref{rem:r2}. Bj\"orklund suggests stable commutator length on the commutator subgroup of $\F_2$ as a first test case; the construction here does not address it.
+
+\section{The cancelation norm}\label{sec:norm}
+
+Fix $r\ge1$ and the alphabet $A=\{a_1^{\pm1},\dots,a_r^{\pm1}\}$. A word is a finite sequence $w=w_1\cdots w_n$ of letters, and $\bar w$ denotes the element of $\F_r$ it represents.
+
+\begin{definition}
+A \emph{matching} of $w$ is a set $M$ of disjoint pairs $\{i,j\}$, $i<j$, of positions of $w$ such that $w_j=w_i^{-1}$ for each pair. It is \emph{noncrossing} if there are no two pairs $\{i,j\},\{k,l\}\in M$ with $i<k<j<l$. The \emph{cost} of $M$ is the number of positions not covered by $M$. Let $L(w)$ be the least cost of a noncrossing matching of $w$.
+\end{definition}
+
+\begin{lemma}\label{lem:trivial}
+A word $w$ has a noncrossing matching of cost $0$ if and only if $\bar w=e$. Consequently $L(w)$ is the least number of letters whose deletion from $w$ leaves a word representing the identity.
+\end{lemma}
+
+\begin{proof}
+Let $M$ be a noncrossing matching of cost $0$, and let $\{i,j\}\in M$ have $j-i$ minimal. A position strictly between $i$ and $j$ is paired with some position, which by the noncrossing condition also lies strictly between $i$ and $j$; that pair is shorter, which is impossible. So $j=i+1$, the letters $w_iw_{i+1}$ cancel, and deleting them leaves a word with a noncrossing matching of cost $0$. By induction on the length, $\bar w=e$.
+
+Conversely, suppose $\bar w=e$ and $w$ is nonempty. A nonempty reduced word does not represent $e$, so $w$ contains an adjacent pair $w_iw_{i+1}$ with $w_{i+1}=w_i^{-1}$. By induction the word with these two letters removed has a noncrossing matching of cost $0$. Transport it back to the positions of $w$ and add the pair $\{i,i+1\}$. No position lies between $i$ and $i+1$, so no pair crosses the new one.
+
+For the second statement, a noncrossing matching of cost $k$ shows that deleting its $k$ uncovered letters leaves a word with a matching of cost $0$, hence a word representing $e$. Conversely, if deleting $k$ letters leaves a word representing $e$, the matching of cost $0$ of the remaining word, read in the positions of $w$, is a noncrossing matching of $w$ of cost $k$.
+\end{proof}
+
+\begin{lemma}\label{lem:reduction}
+If $w'$ is obtained from $w$ by inserting a cancelling pair $aa^{-1}$, $a\in A$, at adjacent positions, then $L(w')=L(w)$. Hence $L(w)$ depends only on $\bar w$.
+\end{lemma}
+
+\begin{proof}
+Let the inserted letters occupy positions $i$ and $i+1$ of $w'$, and identify the other positions of $w'$ with those of $w$ in order. A noncrossing matching of $w$ together with the pair $\{i,i+1\}$ is a noncrossing matching of $w'$ of the same cost, so $L(w')\le L(w)$.
+
+For the reverse inequality let $M'$ be a noncrossing matching of $w'$. We produce a noncrossing matching of $w$ of cost at most that of $M'$.
+\begin{enumerate}[label=(\alph*)]
+\item If $\{i,i+1\}\in M'$, remove this pair. The cost is unchanged.
+\item If neither $i$ nor $i+1$ is covered, discard both positions. The cost drops by two.
+\item If exactly one of $i,i+1$ is covered, say by the pair $\{i',p\}$ with $i'\in\{i,i+1\}$, remove that pair. The uncovered position in $\{i,i+1\}$ disappears and $p$ becomes uncovered, so the cost is unchanged.
+\item If $i$ is paired with $p$ and $i+1$ with $q$, remove both pairs and add $\{p,q\}$. Since $w'_p=a^{-1}$ and $w'_q=a$, this is an admissible pair, and the cost is unchanged.
+\end{enumerate}
+In cases (a)--(c) a subset of a noncrossing matching remains noncrossing. In case (d) we check that no remaining pair $\{x,y\}$ crosses $\{p,q\}$. Up to reflection of the word there are two configurations, because $p<i<i+1<q$ with the pairs $\{p,i\},\{i+1,q\}$ and $q<p<i$ with the pairs $\{p,i\},\{q,i+1\}$ are the noncrossing ones (the order $p<q<i$ would make $\{p,i\}$ and $\{q,i+1\}$ cross).
+
+In the first configuration a position strictly between $p$ and $q$, other than $i,i+1$, lies in $(p,i)$ or in $(i+1,q)$. If a pair $\{x,y\}$ had $x$ in $(p,i)$ and $y$ outside $[p,q]$, it would cross $\{p,i\}$; the case $x\in(i+1,q)$ is the same with $\{i+1,q\}$.
+
+In the second configuration let $x\in(q,p)$ and suppose $y\notin[q,p]$. If $y<q$ or $y>i+1$, the pair $\{x,y\}$ crosses $\{q,i+1\}$. Otherwise $p<y<i$, and $\{x,y\}$ crosses $\{p,i\}$. The positions $p$, $i$, $i+1$ are occupied, so these are all the cases.
+
+Thus $L(w)\le L(w')$. Two words represent the same element of $\F_r$ if and only if they are connected by insertions and deletions of cancelling pairs, which gives the last statement.
+\end{proof}
+
+\begin{proposition}\label{prop:metric}
+The function $L\colon\F_r\to\{0,1,2,\dots\}$ satisfies, for all $g,h,u\in\F_r$,
+\[
+L(g)=0\iff g=e,\qquad L(g^{-1})=L(g),\qquad L(gh)\le L(g)+L(h),\qquad L(ugu^{-1})=L(g).
+\]
+Consequently $d(g,h)=L(g^{-1}h)$ is a metric on $\F_r$ invariant under left and right translations, and $L(a)=1$ for every letter $a$.
+\end{proposition}
+
+\begin{proof}
+The first property is Lemma~\ref{lem:trivial} with Lemma~\ref{lem:reduction}. If $w$ represents $g$, the word $w^{-1}$ obtained by reversing $w$ and inverting each letter represents $g^{-1}$, and reflecting the positions carries noncrossing matchings of $w$ to noncrossing matchings of $w^{-1}$ of the same cost. If $w$ and $v$ represent $g$ and $h$, the union of a noncrossing matching of $w$ and one of $v$, placed on the two blocks of $wv$, is a noncrossing matching of $wv$; this gives subadditivity.
+
+For conjugation let $u=u_1\cdots u_m$ be a word and $w$ a word of length $n$. In $uwu^{-1}$ pair the position $j\le m$ with the position $2m+n+1-j$, which carries $u_j^{-1}$, and add a noncrossing matching of the middle block $w$. These $m$ pairs are nested around the middle block, so the result is noncrossing and $L(\bar u\bar w\bar u^{-1})\le L(\bar w)$. Applying this to $\bar u^{-1}$ and $\bar u\bar w\bar u^{-1}$ gives the reverse inequality.
+
+The metric axioms follow from the first three properties, and left invariance is built into the definition. Right invariance is conjugation invariance: $d(gk,hk)=L(k^{-1}(g^{-1}h)k)=L(g^{-1}h)$. A letter is not the identity, and the one-letter word has a matching of cost $1$, so $L(a)=1$.
+\end{proof}
+
+\begin{remark}
+Proposition~2.A of \cite{BGKM} shows that the cancelation norm of a group normally generated by a finite symmetric set $S$ equals the word norm associated with the set of all conjugates of elements of $S$; with $S=A$ this gives Proposition~\ref{prop:metric} by a different route. Theorem~1.B of \cite{BGKM} contains Lemma~\ref{lem:reduction} as a special case. The direct proofs above are included to keep the argument self-contained.
+\end{remark}
+
+\section{The drift}\label{sec:drift}
+
+Let $s_1,s_2,\dots$ be independent letters, each uniform on $A$, let $W_n=s_1\cdots s_n$ be the word they spell, without reduction, and let $X_n=\overline{W_n}$. Then $X_n$ has law $\mu^{*n}$, and $L(X_n)=L(W_n)$ by Lemma~\ref{lem:reduction}. Write $C_m=\binom{2m}{m}/(m+1)$ for the Catalan numbers.
+
+\begin{lemma}\label{lem:count}
+For $n\ge1$ and $0\le c<1$,
+\[
+\Pp\bigl(L(X_n)\le cn\bigr)\le\sum_{\substack{0\le k\le cn\\ k\equiv n\ (\mathrm{mod}\ 2)}}\binom nk\,C_{(n-k)/2}\,(2r)^{-(n-k)/2}
+\le\sum_{0\le k\le cn}\binom nk\Bigl(\frac2r\Bigr)^{(n-k)/2}.
+\]
+\end{lemma}
+
+\begin{proof}
+Call a set $P$ of disjoint pairs of positions in $\{1,\dots,n\}$ a positional matching; it is noncrossing as before. The event $L(W_n)\le cn$ is the union, over noncrossing positional matchings $P$ leaving $k\le cn$ positions uncovered, of the events $E_P$ that $s_j=s_i^{-1}$ for every $\{i,j\}\in P$. Then $n-k=2m$ is even, with $m=|P|$. The pairs of $P$ are disjoint and the letters are independent, and for a single pair $\Pp(s_j=s_i^{-1})=1/(2r)$; hence $\Pp(E_P)=(2r)^{-m}$.
+
+There are $\binom nk$ choices of the uncovered set. Once it is chosen, relabelling the covered positions $1,\dots,2m$ in increasing order is a bijection between the noncrossing positional matchings with that uncovered set and the noncrossing perfect matchings of $2m$ points in a row, of which there are $C_m$. The union bound gives the first inequality. For the second, $C_m\le4^m$: reading the covered positions from left to right and writing an opening bracket at the smaller element of each pair and a closing bracket at the larger, the noncrossing condition forces each closing bracket to match the nearest unmatched opening bracket to its left, so the bracket word determines the matching, and there are at most $2^{2m}$ such words. Finally $4^m(2r)^{-m}=(2/r)^{(n-k)/2}$.
+\end{proof}
+
+\begin{lemma}\label{lem:chernoff}
+Let $0<y<1$ and $H(c)=-c\log c-(1-c)\log(1-c)$. The function $g(c)=H(c)-(1-c)\log(1/y)$ is strictly increasing on $(0,1/(1+y)]$, tends to $-\log(1/y)<0$ as $c\to0$, and equals $\log(1+y)>0$ at $c=1/(1+y)$. Hence \eqref{eq:cr} has a unique solution $c(y)$ in $(0,1/(1+y))$. For $0<c<c(y)$ and all $n\ge1$,
+\[
+\sum_{0\le k\le cn}\binom nk\,y^{n-k}\le e^{ng(c)},\qquad g(c)<0 .
+\]
+\end{lemma}
+
+\begin{proof}
+We have $g'(c)=\log\bigl((1-c)/(cy)\bigr)$, which is positive for $c<1/(1+y)$. The value at $c\to0$ is clear, and at $c=1/(1+y)$ one computes $H(c)=\log(1+y)-\frac{y}{1+y}\log y$ and $(1-c)\log(1/y)=-\frac{y}{1+y}\log y$. For the bound fix $0<s\le1$. Each term with $k\le cn$ satisfies $s^{k-cn}\ge1$, so
+\[
+\sum_{0\le k\le cn}\binom nk y^{n-k}\le s^{-cn}\sum_{k=0}^n\binom nk s^ky^{n-k}=\bigl(s^{-c}(y+s)\bigr)^n .
+\]
+Take $s=cy/(1-c)$, which lies in $(0,1]$ because $c\le1/(1+y)$. Then $y+s=y/(1-c)$ and $s^{-c}(y+s)=y^{1-c}c^{-c}(1-c)^{-(1-c)}=e^{g(c)}$. Since $g$ is increasing and $g(c(y))=0$, $g(c)<0$ for $c<c(y)$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+The measure $\mu$ is symmetric and its support $A$ generates $\F_r$ as a semigroup. By Proposition~\ref{prop:metric}, $d$ is a bi-invariant metric and $\int d(g,e)\,d\mu(g)=\int L\,d\mu=1$.
+
+Put $y=\sqrt{2/r}$; for $r\ge3$ we have $y<1$. Fix $0<c<c_r=c(y)$. By Lemmas~\ref{lem:count} and~\ref{lem:chernoff}, $\Pp(L(X_n)\le cn)\le e^{ng(c)}$ with $g(c)<0$. Therefore
+\[
+\frac1n\E L(X_n)\ge c\bigl(1-e^{ng(c)}\bigr)\to c .
+\]
+The limit $\ell_d(\mu)=\lim_n\frac1n\E L(X_n)$ exists because $a_n=\E L(X_n)$ is subadditive: $L(X_{n+m})\le L(X_n)+L(X_n^{-1}X_{n+m})$ and $X_n^{-1}X_{n+m}$ has the law of $X_m$. Hence $\ell_d(\mu)\ge c$, and letting $c\uparrow c_r$ gives $\ell_d(\mu)\ge c_r$.
+
+For the almost sure statement, $\sum_n\Pp(L(X_n)\le cn)<\infty$, so by the Borel--Cantelli lemma $L(X_n)>cn$ for all large $n$ almost surely. Taking $c$ along a sequence increasing to $c_r$ gives $\liminf_nL(X_n)/n\ge c_r$ almost surely.
+\end{proof}
+
+\begin{remark}
+Since $L(X_n)\le n$ and $X_n^{-1}X_{n+m}$ is independent of $X_n$, Kingman's subadditive ergodic theorem shows that $L(X_n)/n$ converges almost surely to $\ell_d(\mu)$. For $r=32$ the cruder estimate $n-k\ge3n/4$, $\sum_k\binom nk\le2^n$ in Lemma~\ref{lem:count} already gives $\Pp(L(X_n)\le n/4)\le2^n\cdot2^{-3n/2}=2^{-n/2}$, hence $\ell_d(\mu)\ge1/4$, without Lemma~\ref{lem:chernoff}.
+\end{remark}
+
+\begin{remark}\label{rem:r2}
+For $r=2$ the count of Lemma~\ref{lem:count} is too weak: $C_m(2r)^{-m}=C_m4^{-m}$ decays only like $m^{-3/2}$, while there are about $2^n$ choices of the uncovered set. Whether the simple random walk on $\F_2$ has positive drift for the cancelation norm is not settled here. Simulations (Section~\ref{sec:numerics}) give mean values of $L(X_n)/n$ of $0.21$, $0.16$ and $0.13$ at $n=40$, $80$ and $160$; these decrease and do not decide the question. For $r=1$ the group is $\mathbb Z$, the norm is $L(a^k)=|k|$, and the drift of the symmetric walk is zero.
+\end{remark}
+
+\section{Computations}\label{sec:numerics}
+
+The repository \cite{code} contains a program that checks the definitions and the estimates, and a Lean file. They are not part of the proof. The program \texttt{checks.py} computes $L$ by the recursion that either leaves the first letter uncovered or pairs it with a later inverse letter and splits the word into the parts inside and outside that pair; the noncrossing condition is what makes the two parts independent. It verifies that this recursion agrees with the definition, by enumeration of all noncrossing matchings, on all $21{,}845$ words of length at most $7$ in $\F_2$; checks reduction invariance, nondegeneracy and inverse symmetry on all $87{,}381$ words of length at most $8$ in $\F_2$, and subadditivity and conjugation invariance on $7{,}225$ pairs of words of length at most $3$; evaluates the middle sum of Lemma~\ref{lem:count} exactly for $r=32$ and $c=1/4$ and compares it with $2^{-n/2}$ for $n$ up to $256$; and computes $c_3,c_4,c_8,c_{32}$ from Lemma~\ref{lem:chernoff}. Monte Carlo estimates of $\E L(X_n)/n$ for $n=40,80,160$ are $0.754$, $0.704$, $0.668$ for $r=32$ and $0.288$, $0.237$, $0.203$ for $r=3$. By subadditivity $\E L(X_n)/n\ge\ell_d(\mu)$ for every $n$, so these values are consistent with Theorem~\ref{thm:main}. The Lean file \texttt{ExponentCheck.lean} proves the arithmetic step $k+2m=n$, $4k\le n\Rightarrow3n\le8m$ used in the case $r=32$, with Lean~4 and Mathlib.
+
+\section*{Acknowledgements and funding}
+The research presented in this paper was supported by the European Research
+Council (ERC) under the European Union's Horizon Europe research and
+innovation programme (grant agreement No.~101041711), by the Simons
+Foundation as part of the Collaboration on the Mathematical and Scientific
+Foundations of Deep Learning, by Heights Labs, by Convex Nexus Capital, by
+the Israel Science Foundation (grant number 2258/19), and by the Israel
+Science Foundation (ISF Grant 4101/25). Computational resources were
+provided in part by Google Cloud through its education credits program
+(credit 530550103).
+
+\section*{Declaration of competing interest}
+The author holds equity in Heights Labs and in Convex Nexus Capital and
+has a management role at Convex Nexus Capital. These entities are included
+in the funding declaration above.
+
+\section*{Declaration of generative AI and AI-assisted technologies}
+The paper comes out of Math Brain, an ongoing project on the use of AI systems for research mathematics. In October 2026 OpenAI GPT models, running as research tasks of that project, proposed the counterexample on $\F_{32}$, including the matching argument of Lemma~\ref{lem:reduction} and the bound $\ell_d(\mu)\ge1/4$, and wrote the Lean file. In November 2026 Claude Opus~5.5 (Anthropic), working in Claude Code, checked the proof, extended the estimate to $r\ge3$ through Lemma~\ref{lem:chernoff}, wrote the verification program and wrote the paper. The author directed the work and is responsible for the content of the paper and for decisions concerning its dissemination.
+
+\section*{Data availability}
+No data were used. The code is available at\\ \url{https://github.com/yspennstate/bi-invariant-drift-free-group}.
+
+\begin{thebibliography}{10}
+
+\bibitem{B}
+M.~Bj\"orklund, Five remarks about random walks on groups, arXiv:1406.0763v2, 2014.
+
+\bibitem{BGKM}
+M.~Brandenbursky, \'S.~R.~Gal, J.~K\c{e}dra and M.~Marcinkowski, Cancelation norm and the geometry of biinvariant word metrics, \emph{Glasg. Math. J.} \textbf{58} (2016), 153--176. arXiv:1310.2921.
+
+\bibitem{KV}
+V.~A.~Kaimanovich and A.~M.~Vershik, Random walks on discrete groups: boundary and entropy, \emph{Ann. Probab.} \textbf{11} (1983), 457--490.
+
+\bibitem{KL}
+A.~Karlsson and F.~Ledrappier, Linear drift and Poisson boundary for random walks, \emph{Pure Appl. Math. Q.} \textbf{3} (2007), 1027--1036.
+
+\bibitem{code}
+Y.~Shmalo, Code for ``Positive drift for a bi-invariant metric on a free group'', \url{https://github.com/yspennstate/bi-invariant-drift-free-group}, 2026.
+
+\end{thebibliography}
+\end{document}
