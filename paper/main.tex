@@ -41,13 +41,13 @@ Let $G$ be a countable group and $\mu$ a probability measure on $G$ whose suppor
 \[
 \ell_d(\mu)=\lim_{n\to\infty}\frac1n\int_G d(g,e)\,d\mu^{*n}(g)
 \]
-exists by Fekete's lemma. For word metrics, and more generally for metrics of the type considered by Karlsson and Ledrappier, vanishing of the drift is tied to the Liouville property of $(G,\mu)$ \cite{KV,KL}. In his notes on random walks \cite{B}, Bj\"orklund gives short proofs of these facts, and among the problems listed in the last section of the notes he asks the following \cite[Problem~4]{B}.
+exists by Fekete's lemma \cite{F}. For word metrics, and more generally for metrics of the type considered by Karlsson and Ledrappier, vanishing of the drift is tied to the Liouville property of $(G,\mu)$ \cite{KV,KL}. In his notes on random walks \cite{B}, Bj\"orklund gives short proofs of these facts, and among the problems listed in the last section of the notes he asks the following \cite[Problem~4]{B}.
 
 \begin{quote}
 Let $(G,\mu)$ be a symmetric measured group and suppose there exists a bi-invariant (conjugation-invariant) and $\mu$-integrable (semi-)metric $d$ on $G$. Is $\ell_d(\mu)=0$?
 \end{quote}
 
-Here a measured group is a pair as above, and symmetry means $\mu(g)=\mu(g^{-1})$. No properness condition is placed on $d$. The answer is negative, already for simple random walk on a free group of rank three.
+Here a measured group is a pair as above, and symmetry means $\mu(g)=\mu(g^{-1})$. No properness condition is placed on $d$. Conjugation-invariant norms on groups were studied systematically by Burago, Ivanov and Polterovich \cite{BIP}. The answer is negative, already for simple random walk on a free group of rank three.
 
 For a word $w$ in the letters of $\F_r$ let $L(w)$ be the least number of letters whose deletion from $w$ leaves a word representing the identity. Section~\ref{sec:norm} shows that $L(w)$ depends only on the element represented by $w$; write $L(g)$ for this value. This is the cancelation norm of Brandenbursky, Gal, K\c{e}dra and Marcinkowski \cite{BGKM}, who identify it with the word norm associated with the union of the conjugacy classes of the letters \cite[Proposition~2.A]{BGKM}.
 
@@ -223,6 +223,10 @@ M.~Bj\"orklund, Five remarks about random walks on groups, arXiv:1406.0763v2, 20
 \bibitem{BGKM}
 M.~Brandenbursky, \'S.~R.~Gal, J.~K\c{e}dra and M.~Marcinkowski, Cancelation norm and the geometry of biinvariant word metrics, \emph{Glasg. Math. J.} \textbf{58} (2016), 153--176. arXiv:1310.2921.
 
+\bibitem{BIP}
+D.~Burago, S.~Ivanov and L.~Polterovich, Conjugation-invariant norms on groups of geometric origin, in \emph{Groups of Diffeomorphisms}, Adv. Stud. Pure Math. \textbf{52}, Math. Soc. Japan, Tokyo, 2008, 221--250.
+\bibitem{F}
+M.~Fekete, \"Uber die Verteilung der Wurzeln bei gewissen algebraischen Gleichungen mit ganzzahligen Koeffizienten, \emph{Math. Z.} \textbf{17} (1923), 228--249.
 \bibitem{KV}
 V.~A.~Kaimanovich and A.~M.~Vershik, Random walks on discrete groups: boundary and entropy, \emph{Ann. Probab.} \textbf{11} (1983), 457--490.
 
